@@ -1,0 +1,151 @@
+﻿<Window x:Class="Lab2_1_Kulazhin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2_1_Kulazhin"
+        mc:Ignorable="d"
+        Title="Lab2_Kulazhin" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--Get root (Task#1)-->
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <!--Get binary interpretation (Task#2)-->
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Task #1-->
+        <!--Get root title-->
+        <TextBox Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0"
+                 VerticalContentAlignment="Center" TextAlignment="Center"
+                 IsEnabled="False"
+                 Text="Get n-th root from value (Task #1)"
+                 FontFamily="Arial" FontSize="25" FontWeight="Bold"
+                 Background="DarkGreen" Foreground="SandyBrown" BorderBrush="SandyBrown" BorderThickness="4"/>
+
+        <!--Get root button-->
+        <Button x:Name="GetResult_Button" Grid.Row="2" Grid.Column="0" Click="GetResult_Button_Click" Margin="0,0,0,10"
+                BorderBrush="DarkGreen" Background="SandyBrown" BorderThickness="2"
+                Content="GET RESULT" FontSize="23" FontFamily="Arial" FontWeight="Bold" Foreground="DarkGreen">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Clear area button-->
+        <Button x:Name="ClearArea" Grid.Column="1" Grid.Row="2" Click="ClearArea_Click" Margin="0,0,0,10"
+                BorderBrush="SandyBrown" Background="DarkGreen" BorderThickness="2"
+                Content="CLEAR" FontSize="23" FontFamily="Arial" FontWeight="Bold" Foreground="SandyBrown">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <!--Square root image-->
+            <Image x:Name="RootImage"
+                   Height="70" Canvas.Top="43" Canvas.Left="70" Width="Auto"/>
+
+            <!--Power value-->
+            <TextBox x:Name="Power" Height="30" Width="30" Canvas.Left="70" Canvas.Top="43"
+                     BorderBrush="Black"
+                     FontSize="25" FontFamily="Arial" TextAlignment="Center"/>
+
+            <!--Rooted value-->
+            <TextBox x:Name="PoweredValue" Height="40" Width="266" Canvas.Left="110" Canvas.Top="73"
+                     BorderBrush="Black"
+                     FontSize="35" FontFamily="Arial" TextAlignment="Left" TextWrapping="NoWrap"/>
+
+            <!--Just an equality sign-->
+            <TextBox IsEnabled="True" Width="Auto" Height="Auto" Canvas.Left="376" Canvas.Top="65"
+                     Text="=" FontFamily="Arial" FontSize="48" TextAlignment="Center"
+                     BorderThickness="0"/>
+
+            <!--Result-->
+            <TextBox x:Name="Result" Height="40" Width="350" Canvas.Left="408" Canvas.Top="73"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     FontFamily="Arial" FontSize="35" TextAlignment="Left" TextWrapping="NoWrap"/>
+
+            <!--Accuracy-->
+            <TextBox x:Name="Accuracy" Height="40" Width="266" Canvas.Left="110"
+                     BorderBrush="Black"
+                     FontFamily="Arial" FontSize="29" TextAlignment="Left" TextWrapping="NoWrap"
+                     Text="set accuracy (i.e. 4)" Opacity="0.5"
+                     GotFocus="Accuracy_GotFocus" Canvas.Top="3" RenderTransformOrigin="0.512,0.453"/>
+
+            <!--Math.Pow() result-->
+            <TextBox x:Name="MathPowResult" Height="40" Width="350" Canvas.Left="408" Canvas.Top="3"
+                     BorderBrush="Black"
+                     Text="Math.Pow() result" FontFamily="Arial" FontSize="29" TextAlignment="Left" TextWrapping="NoWrap"
+                     IsEnabled="False"/>
+        </Canvas>
+
+        <!--Task #2-->
+        <!--Title-->
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                 VerticalContentAlignment="Center" TextAlignment="Center"
+                 IsEnabled="False"
+                 Text="Get binary interpretation (Task #2)"
+                 FontFamily="Arial" FontSize="25" FontWeight="Bold"
+                 Background="Black" Foreground="White"/>
+
+        <!--Print decimal value-->
+        <TextBox x:Name="InputDecimal"
+                 Grid.Row="4" Grid.Column="0"
+                 Height="50" Width="350"
+                 VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" TextAlignment="Left"
+                 TextWrapping="NoWrap"
+                 Text="Print decimal here"
+                 FontSize="30" FontFamily="Arial"
+                 GotFocus="InputDecimal_GotFocus"
+                 Background="DarkGray" Foreground="White"/>
+
+        <!--Get binary interpretation-->
+        <TextBox x:Name="OutputBinary"
+                 Grid.Row="4" Grid.Column="1"
+                 Height="50" Width="370"
+                 VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" TextAlignment="Left"
+                 TextWrapping="NoWrap"
+                 Text="Binary interpretation" FontSize="30" FontFamily="Arial"
+                 Background="White" Foreground="DarkGray"
+                 IsReadOnly="True"/>
+
+
+        <!--Get binary interpretation button-->
+        <Button x:Name="GetInterpretation_Task2" Grid.Row="5" Grid.Column="0" Margin="0,0,0,10"
+                Background="DarkGray" BorderThickness="2" Foreground="White"
+                Content="GET RESULT" FontSize="23" FontFamily="Arial" FontWeight="Bold"
+                Click="GetInterpretation_Task2_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Clear area button-->
+        <Button x:Name="ClearArea_Task2" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10"
+                Background="White" BorderThickness="2" Foreground="DarkGray"
+                Content="CLEAR" FontSize="23" FontFamily="Arial" FontWeight="Bold"
+                Click="ClearArea_Task2_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

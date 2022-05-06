@@ -1,0 +1,40 @@
+﻿<Window x:Class="Lab2_1_Kulazhin.ErrorResources.LostRootImage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2_1_Kulazhin.ErrorResources"
+        mc:Ignorable="d"
+        Title="LostRootImage" Height="200" Width="500">
+    <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Title-->
+            <TextBox Grid.Row="0" Background="Gray" BorderBrush="White" BorderThickness="2"
+                 Text="Error! - Root image lost"
+                 TextAlignment="Left" FontSize="18" FontWeight="Bold"
+                 IsReadOnly="True"/>
+
+            <!--Solutions title-->
+            <TextBox Grid.Row="1" Background="LightGray" BorderBrush="White" BorderThickness="2"
+                 Text="Check this for solution:" TextAlignment="Left" FontSize="18"
+                 IsReadOnly="True"/>
+
+            <!--Solution 1-->
+            <TextBox Grid.Row="2" Background="White"
+                 Text="1. Make sure that &quot;SquareRootCut_jpg.jpg&quot; file exists and is in application root directory (&quot;bin&quot; folder)."
+                 TextAlignment="Left" TextWrapping="Wrap" FontSize="20"
+                 IsReadOnly="True"/>
+
+            <!--Solution 2-->
+            <TextBox Grid.Row="3" Background="White"
+                 Text="2. Make sure that &quot;SquareRootCut_jpg.jpg&quot; file has correct name (as here)."
+                 TextAlignment="Left" TextWrapping="Wrap" FontSize="20"
+                 IsReadOnly="True"/>
+        </Grid>
+</Window>
